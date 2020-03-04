@@ -1,0 +1,8 @@
+How to run a logstash conf file?
+Create a logstash-test.conf file under the same folder where logstash software located. In the below case, usr/share/logstash/bin will be the location
+
+vedant_devops@elk-demo:/usr/share/logstash/bin$ ls
+benchmark.sh  dependencies-report  logstash      logstash-keystore      logstash.lib.sh  logstash-plugin.bat  pqcheck   ruby       system-install
+cpdump        ingest-convert.sh    logstash.bat  logstash-keystore.bat  logstash-plugin  logstash-test.yml    pqrepair  setup.bat
+Execute the logstash by running the below command:
+vedant_devops@elk-demo:/usr/share/logstash/bin$ .logstash -f logstash-test.yml
