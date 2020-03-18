@@ -1,0 +1,1 @@
+%{DATA:timestamp},%{DATA:batchid},%{DATA:queue},%{DATA:fieldname},%{DATA:status},%{DATA:documenttype},%{DATA:deedcategory},%{DATA:damarcode},%{DATA:makercheckername},%{NUMBER:transactiontime}
