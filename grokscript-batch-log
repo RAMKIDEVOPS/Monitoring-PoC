@@ -36,3 +36,56 @@ layout 3: %{DATA:timestamp},%{DATA:batchid},%{DATA:queue},%{DATA:status},%{DATA:
 
 
 %{DATA:timestamp},%{DATA:batchid},%{DATA:queue},%{DATA:status},%{DATA:documenttype},%{DATA:deedcategory},%{DATA:damarcode},%{DATA:statecountyname},%{DATA:makercheckername}
+
+------------------------------------
+
+logstash - configuraiton file for layout1
+-----------------------------------------
+
+sudo cat logstash-layout1.conf 
+
+input { stdin { } }
+filter {
+  grok {
+    match => { "message" => "%{DATA:timestamp},%{DATA:batchid},%{DATA:status},,,,,%{WORD:makercheckername}" }
+  }
+}
+output {
+  elasticsearch { hosts => ["localhost:9200"] }
+  stdout { codec => rubydebug }
+}
+
+
+logstash - configuraiton file for layout2
+-----------------------------------------
+
+sudo cat logstash-layout1.conf 
+
+input { stdin { } }
+filter {
+  grok {
+    match => { "message" => "%{DATA:timestamp},%{DATA:batchid},%{DATA:queue},%{DATA:status},,,,,%{WORD:maker}" }
+  }
+}
+output {
+  elasticsearch { hosts => ["localhost:9200"] }
+  stdout { codec => rubydebug }
+}
+
+
+logstash - configuraiton file for layout3
+-----------------------------------------
+
+sudo cat logstash-layout1.conf 
+
+input { stdin { } }
+filter {
+  grok {
+    match => { "message" => "%{DATA:timestamp},%{DATA:batchid},%{DATA:queue},%{DATA:status},%{DATA:documenttype},%{DATA:deedcategory},%{DATA:damarcode},%{DATA:statecountyname},%{DATA:makercheckername}
+" }
+  }
+}
+output {
+  elasticsearch { hosts => ["localhost:9200"] }
+  stdout { codec => rubydebug }
+}
