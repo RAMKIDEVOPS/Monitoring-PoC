@@ -89,3 +89,29 @@ output {
   elasticsearch { hosts => ["localhost:9200"] }
   stdout { codec => rubydebug }
 }
+
+--------------------------------------------------------
+
+JSON Output for Layout 3
+-------------------------
+Comma delimited format -
+
+03/12/2020 01:20:13 234600,6280,VALIDATION1,OPENED,STATE TAX LIEN,J,SX,CA RIVERSIDE,SARUNACHALAM
+
+JSON Format -
+
+{
+                "host" => "elk-pc",
+            "@version" => "1",
+             "batchid" => "6280",
+               "queue" => "VALIDATION1",
+        "deedcategory" => "J",
+        "documenttype" => "STATE TAX LIEN",
+          "@timestamp" => 2020-03-27T06:26:27.321Z,
+              "status" => "OPENED",
+           "damarcode" => "SX",
+             "message" => "03/12/2020 01:20:13 234600,6280,VALIDATION1,OPENED,STATE TAX LIEN,J,SX,CA RIVERSIDE,SARUNACHALAM",
+    "makercheckername" => "SARUNACHALAM",
+           "timestamp" => "03/12/2020 01:20:13 234600",
+     "statecountyname" => "CA RIVERSIDE"
+}
